@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/script_jquery.js"></script>
+    <script src="../js/script.js"></script>
+    
+</head>
+<body>
+    <div id="parent"> 
+        <div id="child">
+            <p class="cls1">사과</p>
+            <p class="cls1">딸기</p>
+        </div>
+    </div>
+    <div>
+        <input id="btn1" type="button" value="글자변경"
+        onclick="changeText('dddd');" 
+        <!-- 버튼을 만들고, 클릭하면 js의 changeText함수 수행 -->
+        <input type="button" value="div제거"
+        onclick="removeDiv('parent');"
+        <!-- div라는 블록 요소 안에 버튼 연달아 추가 : 버튼이 옆으로 나옴 -->
+        <input id="text1" type="text" >
+    </div>
+</body>
+</html>

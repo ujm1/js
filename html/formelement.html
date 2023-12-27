@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    
+    <!-- action : 데이터를 전송할 서버 경로 
+    http method : 
+    get으로 서버에 데이터 요청request. header만 전송(데이터는 header에 저장) 하거나
+    post로 header+body 같이 서버에 데이터 전송(데이터는 바디에 저장)-->
+    <form action="http://www.naver.com" method="get">
+    <input type="text" name="sid" value="100">
+    <input type="text" name="smail" value="100@mail.com">
+    <input type="password" name="smail" value="200">
+    <input type="radio" name="sgender" value="male">
+    <input type="radio" name="sgender" value="female">
+    <input type="checkbox" name="shobby" value="낚시">
+    <input type="checkbox" name="shobby" value="등산">
+<select name="sselect">
+    <option> ---선택---</option>
+            <optgroup>
+                <option value="am">오전</option>
+                <option value="pm">오후</option>
+            </optgroup>
+            <optgroup>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            </optgroup> 
+        </select>
+        <textarea name="smemo"></textarea>
+        <input type="submit" value="서버로 전송">
+</form>
+</body>
+</html>
