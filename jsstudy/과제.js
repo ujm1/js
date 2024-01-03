@@ -36,7 +36,8 @@ const sumMath = students.reduce((sum, student) => {
 
 
 for (const student of students) {
-console.log(student[Object.keys(student)].sname+
+console.log(
+    Object.keys('s001').sname+
 ' 국어:'+(student[Object.keys(student)].skor-sumKor/5)+', '+
 '영어:'+(student[Object.keys(student)].seng-sumEng/5)+', '+
 '수학:'+(student[Object.keys(student)].smath-sumMath/5)); 

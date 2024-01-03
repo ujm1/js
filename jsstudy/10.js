@@ -169,3 +169,33 @@ Object.setPrototypeOf(me6, parent);
 me6.sayHello();
 
 console.log(me6.constructor===Object);
+
+function Person(name) {this.name=name; console.log(name);}
+
+person.staticProp='staticProp';
+person.staticMethod=function() {console.log(staticMethod);}
+
+const me2=new Person('Lee');
+
+function Foo() {}
+
+
+Foo.prototype.a=function() {console.log('aaa')};
+
+const foo=new Foo();
+
+foo.a() 
+
+Foo.a=function () {console.log('bbbbb');};
+
+
+Foo.a(); 
+
+const person222={name:'lee', 
+__proto__:{age:20}};
+
+for(const key in person222) {console.log(key+":"+person222[key]);}
+
+console.log('age' in person222);
+
+console.log(Object.keys(person222));
