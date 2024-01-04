@@ -1,0 +1,56 @@
+{
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "commonjs": true,
+      //"es2022": true
+      "es2021": true
+    },
+    "globals": { "_": true },
+    "plugins": ["import", "html"],
+    //  "extends": ["airbnb-base", "prettier", "react-app"],
+    "extends": ["airbnb-base", "prettier"],
+    //  "parser":["@babel/eslint-parser","@typescript-eslint/parser"],
+    "parser":"@babel/eslint-parser",
+    //"parser":"@typescript-eslint/parser" @babel/eslint-parser
+    "rules": {
+      "no-console": "off", //warn이었음 : console.log 약한 경고 수행
+      "no-plusplus": "off",
+      "no-shadow": "off",
+      "vars-on-top": "off",
+      "no-underscore-dangle": "off", // var _foo;
+      "comma-dangle": "off",
+      "func-names": "off", // setTimeout(function () {}, 0);
+      "prefer-template": "off",
+      "prefer-const": "warn",
+      "no-nested-ternary": "off",
+      "no-unused-vars":"warn",
+      "max-classes-per-file": "off",
+      "consistent-return": "off",
+      "no-restricted-syntax": ["off", "ForOfStatement"], // disallow specified syntax(ex. WithStatement)
+      "prefer-arrow-callback": "error", // Require using arrow functions for callbacks
+      "require-await": "error",
+      "arrow-parens": ["error", "as-needed"], // a => {}
+      "no-param-reassign": ["error", { "props": false }],
+      "no-unused-expressions": ["error", {
+        "allowTernary": true,      // a || b
+        "allowShortCircuit": true, // a ? b : 0
+        "allowTaggedTemplates": true
+      }],
+      "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+      "max-len": ["error", {
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }],
+      "spaced-comment": [ "off", "always", {
+        "line": {     //주석 바로 뒤에 쓸 때 에러뜨는거 끄기
+            "markers": ["#region", "#endregion", "region", "endregion"]
+        }
+    }]
+    }
+  }

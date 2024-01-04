@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 var newTextEle;
 
 window.onload=function() { //윈도우가 로드되면 이 펑션이 수행된다
