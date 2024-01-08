@@ -80,27 +80,47 @@ window.onload = function () {
     });
   }
 
-  //실습5 체크한 과일명들을 result5에 출력 ㅇ
+  //강사코드   const clcolor = document.getElementsByClassName('clcolor');
+  // for (eachEle of clcolor) {
+  //   eachEle.addEventListener('click', function() {
+  //     document.body.style.backgroundColor = this.getAttribute('value');
+  //   });
+  // }
+
+
+  //실습5 체크한 과일명들을 result5에 출력 -> 1개만 됨
+  // const result5 = document.getElementById('result5');
+  // const cbs = document.getElementsByName('cb');
+  // console.log(cbs);
+  // for (cb of cbs) {
+  //   cb.addEventListener('click', function (event) {
+  //     if (cb.checked) {
+  //       result5.innerHTML = this.value;
+  //     }
+  //   });
+  // }
+
   const result5 = document.getElementById('result5');
-  const cbs = document.getElementsByName('cb');
-  console.log(cbs);
-  for (cb of cbs) {
-    cb.addEventListener('click', function (event) {
-      if (cb.checked) {
-        result5.innerHTML = this.value;
-      }
+  const clcb = document.getElementsByClassName('clcb');
+  const resultArr = [];
+  for (eachEle of clcb) {
+    eachEle.addEventListener("change", function() {
+      const thisVal = this.value;
+      const thisValIdx = resultArr.indexOf(thisVal);
+      thisValIdx<0 ? resultArr.push(thisVal) : resultArr.splice(thisValIdx, 1);
+      result5.innerHTML = resultArr;
     });
   }
 
   //실습6 구구단
-  const result6 = document.getElementById('result6');
-  const calnums = document.getElementById('sel');
-  const calnumsmall = document.getElementById('sel').childNodes;
-  console.log(calnums);
-  console.log(calnums[0].value); //select
-  console.log(calnums[1].value); //2
-  console.log(calnumsmall);
-  console.log(calnumsmall.value);
+  // const result6 = document.getElementById('result6');
+  // const calnums = document.getElementById('sel');
+  // const calnumsmall = document.getElementById('sel').childNodes;
+  // console.log(calnums);
+  // console.log(calnums[0].value); //select
+  // console.log(calnums[1].value); //2
+  // console.log(calnumsmall);
+  // console.log(calnumsmall.value);
   // for (calnum of calnums) {
   //   calnum.addEventListener('click', function (event) {
   //     if (calnum != calnums[0]) {
@@ -118,24 +138,49 @@ window.onload = function () {
     
 //   });
 
-calnums.addEventListener("click", function() {
+// calnums.addEventListener("click", function() {
 
-  result6.innerText = function() {return this.value;}
+//   result6.innerText = function() {return this.value;}
+
+  const result6 = document.getElementById('result6');
+  const sel = document.getElementById('sel');
+  sel.addEventListener('change', function() {
+    const selVal = this.value;
+    if (this.value != '--select--') {
+      for (resultStr='', i=2; i<10; i++) {
+        resultStr += `${selVal} * ${i} = ${selVal*i} `;
+      }      
+      result6.innerHTML = resultStr;
+    } else {
+      result6.innerHTML = '';
+    }
+  });
 
 
   //실습7 버튼 클릭 시 데이터를 테이블에 출력
   //홍길동 100 100 100 강감찬 90 90 90 이순신 80 80 80
-  const tablerows = document.getElementsByClassName('tablerow');
-  const sname = document.getElementsByClassName('sname');
-  const skor = document.getElementsByClassName('skor');
-  const smath = document.getElementsByClassName('smath');
-  const seng = document.getElementsByClassName('seng');
-  const tablebtn = document.getElementById('btnscore');
-  console.log(tablerows);
-  console.log(tablerows[0]);
-  console.log(tablerows[0][0]);
-  btnscore.addEventListener('click', function (event) {
-    tablerows[0].innerText = '홍길동';
+//   const tablerows = document.getElementsByClassName('tablerow');
+//   const sname = document.getElementsByClassName('sname');
+//   const skor = document.getElementsByClassName('skor');
+//   const smath = document.getElementsByClassName('smath');
+//   const seng = document.getElementsByClassName('seng');
+//   const tablebtn = document.getElementById('btnscore');
+//   console.log(tablerows);
+//   console.log(tablerows[0]);
+//   console.log(tablerows[0][0]);
+//   btnscore.addEventListener('click', function (event) {
+//     tablerows[0].innerText = '홍길동';
+//   });
+// });
+
+const btnscore = document.getElementById('btnscore');
+  const tds = document.querySelectorAll('tbody td');
+  btnscore.addEventListener('click', function() {
+    const students = ['홍길동',100,100,100,'강감찬',90,90,90,'홍길동',80,80,80];
+    tds.forEach(function(ele, idx) {
+      ele.innerHTML = students[idx];
+    });
   });
-});
+
+
 }
