@@ -39,17 +39,38 @@ const printData = function (cArray, ncArray) {
 
 const change = function () {
   $('.cbtn').on('click', function () {
-    move($(this).parent().attr('id'));
+    moveData($(this).parent().attr('id'));
   });
 
   $('.ncbtn').on('click', function () {
-    move($(this).parent().attr('id'));
+    moveData($(this).parent().attr('id'));
   });
 };
 
-const move = function (id) {
-  console.log(id);
-};
+// 5. 버튼누르면 완료/미완료 이동
+const moveData = function(clickedId) {
+  const targetObj = totalArray.filter(obj => String(obj.id)===clickedId);
+  targetObj[0].completed = !targetObj[0].completed;
+  if(cArray.includes(targetObj[0])) {
+      cArray.splice(cArray.indexOf(targetObj[0]), 1);
+      ncArray.unshift(targetObj[0]);
+  } else {
+      ncArray.splice(ncArray.indexOf(targetObj[0]), 1);
+      cArray.unshift(targetObj[0]);
+  }
+  printData(cArray, ncArray);
+}
+
+// 6. 정렬
+const sortData = function(sortType) {
+  switch (sortType) {
+      case "cASC":    cArray.sort((a, b) => a.id - b.id); break;
+      case "cDESC":   cArray.sort((a, b) => b.id - a.id); break;
+      case "ncASC":  ncArray.sort((a, b) => a.id - b.id); break;
+      case "ncDESC": ncArray.sort((a, b) => b.id - a.id);
+  }
+  printData(cArray, ncArray);
+}
 
 //   $('#btn').on('click', function () {
 //     $.get({

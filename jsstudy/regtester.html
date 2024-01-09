@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script defer src="register.js"></script>
+    <style>
+      input[type='text'],
+      textarea {
+        width: 600px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>정규표현식 테스터</h2>
+    <p>
+        test<input value="test" class="input1" type="checkbox"/> &nbsp;
+        match<input value="match" class="input1" type="checkbox"/>
+    </p>
+    <p>패턴: <input id="pattern" type="text" width="100" /></p>
+    <p>플래그 : 
+        g <input value="g" class="input2" type="checkbox"/>&nbsp;
+        i <input value="i" class="input2"type="checkbox"/>&nbsp;
+        m<input value="m" class="input2"type="checkbox"/>
+    </p>
+   
+ 
+      <p>문자열: <textarea id="str" rows="10"></textarea></p>
+      <p><input id="btn" type="button" value="결과확인" /></p>
+      <p><span id="result"></span></p>
+      <p><span id="result2"></span></p>
+  </body>
+</html>
